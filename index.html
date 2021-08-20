@@ -1,1 +1,108 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0">
+  <title>我的大学生活</title>
+  <link rel="stylesheet" href="../res/layui/css/layui.css">
+  <link rel="stylesheet" href="../res/static/css/index.css">
+</head>
+<body>
+  <!-- nav部分 -->
+  <div class="nav index">
+    <div class="layui-container">
+      <!-- logo -->
+      <div class="nav-logo">
+        <a href="index.html">
+          <img src="../res/static/img/logo.png" width="200px" height="80px" alt="大学生活">
+        </a>
+      </div>
+      <div class="nav-list">
+        <button>
+          <span></span><span></span><span></span>
+        </button>
+        <ul class="layui-nav" lay-filter="">
+          <li class="layui-nav-item layui-this"><a href="index.html">首页</a></li>
+          <li class="layui-nav-item"><a href="grjs.html">个人介绍</a></li>
+          <li class="layui-nav-item "><a href="kysh.html">课余生活</a></li>
+          <li class="layui-nav-item"><a href="xx.html">学校</a></li>
+          <li class="layui-nav-item"><a href="zygh.html">读研规划</a></li>
+         
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!-- banner部分 -->
+  <div>
+    <div class="layui-carousel" id="banner">
+      <div id="box">
+        <div>
+          <ul id="pic">
+
+          <li><img src="../res/static/img/ttt.jpg"></li>
+          <li><img src="../res/static/img/banner2.jpg"></li>
+          <li><img src="../res/static/img/tqq.jpg"></li>
+          <li><img src="../res/static/img/ttt.jpg"></li>
+          
+          </ul>
+          <div class="panel">
+            <p class="title">Welcome</p>
+            <p>我的大学生活</p>
+          </div>
+        
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  <!-- footer部分 -->
+  <div class="footer">
+    <div class="layui-container">
+      <p class="footer-web">
+        <a href="http://www.ccyl.org.cn/">共青团中央</a>
+        <a href="http://www.ccyl.org.cn/organs/institution/xxb/">团中央学校部</a>
+        <a href="https://www.sxgqt.org.cn/">陕西共青团</a>
+        
+        <a href="http://www.xjtu.edu.cn/">西安交通大学</a>
+      </p>
+     
+      </div>
+    </div>
+  
+<script src="../res/layui/layui.js"></script>
+
+<script>
+
+  var curindex=0;
+  var maxlen=document.getElementById("box").getElementsByTagName("li").length-1;
+  var timer = null;
+  var width = 1920;
+  timer = setInterval(change_auto,4000);
+  function change_auto(){
+if(curindex<maxlen){
+  curindex++;
+  get_next();
+}else{
+  curindex=0;
+  get_reset();
+}
+
+  }
+  function get_next(){
+    var totalbanner = document.getElementById("box")
+    totalbanner.style.marginLeft = "-"+width*curindex+"px";
+    totalbanner.style.transition = 0.3+"s"
+  }
+  function get_reset(){
+    var totalbanner = document.getElementById("box");
+    totalbanner.style.marginLeft="-"+width*curindex+"px";
+    totalbanner.style.transition = 0.3+"s";
+
+  }
+  layui.config({
+    base: '../res/static/js/' 
+  }).use('firm'); 
+</script>
+</body>
+</html>

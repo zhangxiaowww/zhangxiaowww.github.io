@@ -1,0 +1,23 @@
+{
+  "id": "2876443",
+  "name": "no name",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "24754594",
+      "name": "lamb-right",
+      "font_class": "right",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
+      "icon_id": "24754600",
+      "name": "lamb-left",
+      "font_class": "left",
+      "unicode": "e601",
+      "unicode_decimal": 58881
+    }
+  ]
+}

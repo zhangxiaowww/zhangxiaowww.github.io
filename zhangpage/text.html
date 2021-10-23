@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+
+            height: 100px;
+            width: 100px;
+            background-color: red;
+            position: absolute;
+            left: 0;
+        }
+        #box1{
+            
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var box = document.getElementById("box");
+            var oldww = parseInt(getStyle(box,"left"));
+            
+            var old = getStyle(box,"left");
+            move(box,0,-10);
+     
+        }
+        function getStyle(obj, name){
+            if(window.getComputedStyle){
+                return getComputedStyle(obj,null)[name];
+            }else{
+                return obj.currentStyle[name];
+            }
+        }
+        function move(obj,target,speed){
+            clearInterval(timer);
+            timer = setInterval(function(){
+                var oldValue = parseInt(getStyle(obj,"left"));
+                var newValue = oldValue + speed;
+                if(speed<0 && newValue< target||speed>0 && newValue > target){
+                    newValue = target;
+                }
+                obj.style.left = newValue + "px";
+                if(newValue == target){
+                    clearInterval(timer);
+                }
+            },30)
+        }
+        
+    </script>
+</head>
+
+<body>
+    <div id="box1"></div>
+    <div id="box">
+        <img src="" alt=""><img src="" alt="">
+
+    </div>
+</body>
+
+</html>

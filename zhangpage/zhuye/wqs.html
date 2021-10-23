@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../need/iconfont/iconfont.css">
+    <link rel="stylesheet" href="../need/reset.css">
+    <link rel="stylesheet" href="../layout/lay.css">
+    <style>
+        html {
+            perspective: 2000px;
+        }
+
+        .www {
+
+            height: 300px;
+            margin: 120px auto;
+            position: relative;
+        }
+
+        .www img {
+            width: 100%;
+            position: absolute;
+            z-index: -1;
+            height: 300px;
+            margin: 0 auto;
+
+        }
+
+        .wd {
+            height: 100px;
+            width: 400px;
+            position: absolute;
+            margin-top: auto;
+            margin-bottom: auto;
+            margin-left: auto;
+            margin-right: auto;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            ;
+        }
+
+        .wd p {
+            text-align: center;
+            font-size: 35px;
+            font-family: cursive;
+            color: rgba(96, 96, 96, .9);
+        }
+
+        .club {
+            /* position: absolute; */
+            margin-top: -80px;
+            line-height: 150px;
+        }
+
+        .club a {
+
+            color: rgb(51, 51, 51);
+            text-decoration: none;
+            float: left;
+            border: 1px red solid;
+            border-color: rgba(78, 107, 78, .4);
+            font-size: 80px;
+            margin-left: 0px;
+            padding-left: 50px;
+            padding-right: 50px;
+            border-radius: 5%;
+        }
+
+        .wqsintro {
+            height: 200px;
+            font-size: 25px;
+
+        }
+
+        .wqsintro a {
+            text-decoration: none;
+
+        }
+
+        #h {
+            text-align: center;
+            font-size: 80px;
+            color: rgb(67, 154, 186);
+        }
+
+
+        .wqs p::before {
+            content: '\00A0\00A0\00A0\00A0\00A0\00A0\00A0';
+        }
+
+        #xsht {
+            width: 100%;
+            height: 600px;
+        }
+
+        #xsht img {
+            display: block;
+            width: 800px;
+            margin: 0 auto;
+        }
+
+        #wangqiushe {
+            float: right;
+        }
+
+        .i {
+            height: 600px;
+            position: relative;
+            margin-bottom: 500px;
+        }
+
+        .img-wrapper {
+            height: 400px;
+            width: 100%;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            transform-style: preserve-3d;
+            transform: rotateY(0) translateZ(-500px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transform-style: preserve-3d;
+            animation: rotate 5s reverse;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+        }
+
+        .img-wrapper img {
+
+            transform-style: preserve-3d;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .img1 {
+            transform: rotateY(90deg) translateZ(500px)
+        }
+
+        .img2 {
+            transform: rotateY(180deg) translateZ(500px)
+        }
+
+        .img3 {
+            transform: rotateY(270deg) translateZ(500px)
+        }
+
+        .img4 {
+            transform: rotateY(360deg) translateZ(500px);
+        }
+
+        .img-wrapper img:hover {
+            transition: .5s;
+            transform: scale(1.6);
+            -webkit-animation-play-state: paused;
+
+        }
+        .img-wrapper:hover{
+            -webkit-animation-play-state: paused;
+        }
+
+        @keyframes rotate {
+           from{
+               transform: translateZ(-500px) rotateY(0);
+           }
+           to{
+            transform: translateZ(-500px) rotateY(1turn);
+           }
+
+        }
+        .wd{
+            animation:fa 1s ;
+        }
+     
+    </style>
+</head>
+
+<body>
+    <div class="nav clearfix">
+
+        <div class="logo"><a href="index.html"><i class="iconfont icon-cangchuguanli"></i></a></div>
+        <div class="nav-top">
+            <ul class="list">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="../zhuye/grjs.html">个人介绍</a></li>
+                <li><a href="kysh.html">课余生活</a></li>
+                <li><a href="xxjs.html">学校介绍</a></li>
+                <li><a href="dygh.html">读研规划</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="www">
+        <img src="../img/grjs.jpg" alt="">
+        <div class="wd">
+            <p id="word1">课余生活</p>
+            <p id="word2">Extracurricular Life</p>
+        </div>
+    </div>
+    <div class="club clearfix">
+        <ul>
+            <li><a href="xsh.html">学生会</a></li>
+            <li><a href="wqs.html" id="wangqiushe">网球社</a></li>
+        </ul>
+    </div>
+    <div class="wqsintro">
+        <a href="#">
+            <h1 id="h">太理网球社</h1>
+        </a>
+        <br />
+        <br />
+
+    </div>
+    <div class="i">
+        <div class="img-wrapper">
+            <div class="img1 g"> <img src="../img/11.jpeg" alt=""></div>
+            <div class="img2 g"> <img src="../img/22.jpeg" alt=""></div>
+            <div class="img3 g"> <img src="../img/33.jpeg" alt=""></div>
+            <div class="img4 g"> <img src="../img/44.jpeg" alt=""></div>
+        </div>
+    </div>
+    <div class="foot">
+
+        <a href="http://www.xjtu.edu.cn/">西安交通大学</a>
+        <a href="http://www.xayl.org/">西安共青团</a>
+        <a href="https://www.sxgqt.org.cn/">陕西共青团</a>
+        <a href="http://www.gqt.org.cn/">共青团中央</a>
+    </div>
+</body>
+
+</html>

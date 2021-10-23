@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .invisible {
+            display: none;
+        }
+    </style>
+    <script src="need/tools.js"></script>
+    <script>
+        window.onload = function () {
+            var btn = document.getElementsByClassName("d");
+            var word = document.getElementsByClassName("cont");
+            // alert(word.length)
+
+
+            for (var i = 0; i < word.length; i++) {
+                btn[i].index = i;
+                btn[i].onclick = function () {
+                    var cur = this.index
+                    removeClass(word[cur], "invisible");
+                }
+
+
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div class="cont invisible">111</div>
+    <div class="cont invisible">222</div>
+    <div class="cont invisible">333</div>
+    <div class="cont invisible">444</div>
+    <button class="d">
+        111
+    </button>
+    <button class="d">
+        222
+    </button>
+    <button class="d">
+        333
+    </button>
+    <button class="d">
+        444
+    </button>
+</body>
+
+</html>

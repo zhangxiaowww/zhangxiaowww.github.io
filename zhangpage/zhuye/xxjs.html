@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../need/iconfont/iconfont.css">
+    <link rel="stylesheet" href="../need/reset.css">
+    <link rel="stylesheet" href="../layout/lay.css">
+    <style>
+     
+        .qqq {
+
+            height: 330px;
+            margin: 120px auto;
+            position: relative;
+        }
+
+        .qqq img {
+            width: 100%;
+            position: absolute;
+            z-index: -1;
+            height: 350px;
+            margin: 10px auto;
+
+        }
+
+        .wd {
+            height: 100px;
+            width: 400px;
+            position: absolute;
+            margin-top: auto;
+            margin-bottom: auto;
+            margin-left: auto;
+            margin-right: auto;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            ;
+        }
+
+        .wd p {
+            text-align: center;
+            font-size: 35px;
+            font-family: cursive;
+            color: rgba(96, 96, 96, .9);
+        }
+
+        .www {
+
+            height: 500px;
+            border-top: 1px yellowgreen solid;
+            padding-top: 50px;
+            background-image: url(../img/lq.jpeg);
+            background-repeat: no-repeat;
+            background-position: 70% 40%;
+
+        }
+
+        .l li {
+            font-size: 40px;
+            color: turquoise;
+            padding-top: 40px;
+            padding-bottom: 20px;
+        }
+
+        #tit {
+            text-align: center;
+            font-size: 60px;
+        }
+
+        .dd {
+            font-size: 30px;
+        }
+
+        .dd::before {
+            content: '\00A0\00A0\00A0\00A0\00A0';
+        }
+
+       
+
+        .erji {
+          position: absolute;
+            margin-left: 100px;
+            top:50px;
+        }
+
+        .erji a {
+            display: block;
+            background-color:rgba(230, 230, 230,.8);
+            width: 200px;
+            height: 50px;
+            font-size: 20px;
+            line-height: 50px;
+            color: #711818;
+        }
+
+        .erji a:hover {
+            background-color: #bfa;
+        }
+
+        .collapsed {
+            height: 52px;
+            overflow: hidden;
+        }
+      
+        .menuSpan {
+            display: block;
+            width: 200px;
+            height: 52px;
+        }
+        .menuSpan a{
+            font-size: 20px;
+            color: white       ;
+            border: 1px black solid;
+            width: 200px;
+            height: 52px;
+            border-top: none;
+            background-image: linear-gradient(#474346, #938590);
+        }
+
+        #first{
+            border: 1px black solid;
+            border-radius: 20px 20px 0 0;
+        }
+        a {
+            text-decoration: none;
+        }
+
+        .hi {
+            overflow: hidden;
+            font-size: 30px;
+            text-align: center;
+        }
+        .conten{
+           
+            width: 200px;
+            border: 1px black solid;
+          border-color: rgba(74, 75, 72,.5);
+        }
+        .scenery{
+            position: absolute;
+            left: 30%;
+            width: 1000px;
+            height: 1000px;
+            background-size: 100%;
+            top: 1.5%;
+           opacity: .9;
+        }
+        .boxx{
+            position: relative;
+            margin: 0 auto;
+            width: 2500px;
+            height: 650px;
+            background-color: rgba(135, 218, 231,.4)
+        }
+        .change{
+            display: block;
+        }
+        .invisible{
+            display: none;
+        }
+        .word{
+                position: absolute;
+                left: 20%;
+                font-size:50px;
+                width: 230px;
+        }
+        #xiqianjingshen{
+            font-size: 20px;
+        }
+    </style>
+    <script src="../need/tools.js"></script>
+    <script>
+        window.onload = function () {
+            var tit = document.getElementsByClassName("menuSpan");
+            // removeClass(tit[0].parentNode, "collapsed");
+            var openDiv = tit[0].parentNode;
+            for (var i = 0; i < tit.length; i++) {
+                tit[i].onclick = function () {
+                    var parentDiv = this.parentNode;
+                   toggle(parentDiv);
+                    if (openDiv != parentDiv && !hasClass(openDiv, "collapsed")) {
+                        toggle(openDiv);
+                    }
+                    openDiv = parentDiv;
+
+
+                }
+            }
+            function toggle(obj){
+                var begin = obj.offsetHeight;
+                    toggleClass(obj, "collapsed");
+                    var end = obj.offsetHeight;
+                    obj.style.height = begin + "px";
+                    move(obj, "height", end, 6, function () {
+                        obj.style.height = "";
+                    });
+            }
+            var btn = document.getElementsByClassName("conten");
+            var word = document.getElementsByClassName("word");
+            var img = document.getElementsByClassName("scenery");
+            // alert(word.length)
+
+            var temp=0;
+            for (var i = 0; i < word.length; i++) {
+                btn[i].index = i;
+                btn[i].onclick = function () {
+                    addClass(word[temp],"invisible");
+                    addClass(img[temp],"invisible");
+                    var cur = this.index;
+                    removeClass(word[cur], "invisible");
+                    removeClass(img[cur], "invisible");
+                    temp = cur;
+                }
+
+
+            }
+         
+        }
+    </script>
+</head>
+
+<body>
+    <div class="nav clearfix">
+        <div class="logo"><a href="index.html"><i class="iconfont icon-cangchuguanli"></i></a></div>
+        <div class="nav-top">
+            <ul class="list">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="grjs.html">个人介绍</a></li>
+                <li><a href="kysh.html">课余生活</a></li>
+                <li><a href="xxjs">学校介绍</a></li>
+                <li><a href="dygh.html">读研规划</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="qqq">
+        <img src="../img/dd.jpg" alt="">
+        <div class="wd">
+            <p id="word1">学校介绍</p>
+            <p id="word2">University Introduction</p>
+        </div>
+    </div>
+    <div class=boxx>
+    <div class="erji">
+        <div class="collapsed hi">
+            <span class="menuSpan"><a href="javascript:void(0);" id="first">交大概况</a></span>
+            <a href="javascript:void(0);" class="conten">交大简介</a>
+            <a href="javascript:void(0);" class="conten">学校校徽</a>
+            <a href="javascript:void(0);" class="conten">学校领导</a>
+            <a href="javascript:void(0);" class="conten">学校人数</a>
+        </div>
+        <div class="collapsed hi">  
+            <span class="menuSpan"><a href="javascript:void(0);">校园风景</a></span>
+            <a href="javascript:void(0);" class="conten">涵英楼</a>
+            <a href="javascript:void(0);" class="conten">图书馆</a>
+            <a href="javascript:void(0);" class="conten">宿舍环境</a>
+            <a href="javascript:void(0);" class="conten">钱学森图书馆</a>
+        </div>
+        <div class="collapsed hi">
+            <span class="menuSpan"><a href="javascript:void(0);">校园生活</a></span>
+            <a href="javascript:void(0);" class="conten">学生会</a>
+            <a href="javascript:void(0);" class="conten">党建活动</a>
+            <a href="javascript:void(0);" class="conten">工会活动</a>
+            <a href="javascript:void(0);" class="conten">学校精神</a>
+        </div>
+        <div class="collapsed hi">
+            <span class="menuSpan"><a href="javascript:void(0);">电信学部</a></span>
+            <a href="javascript:void(0);" class="conten">学部介绍</a>
+            <a href="javascript:void(0);" class="conten">院系分布</a>
+            <a href="javascript:void(0);" class="conten">计算机系</a>
+        </div>
+        
+    </div>
+    <div class="word invisible">西安交大简介</div>
+    <div class="word invisible">校徽设置</div>
+    <div class="word invisible">交大领导</div>
+    <div class="word invisible">学校人数</div>
+    <div class="word invisible">涵英楼</div>
+    <div class="word invisible">创新港的图书馆！</div>
+    <div class="word invisible">创新港宿舍环境</div>
+    <div class="word invisible">兴庆校区的钱学森图书馆</div>
+    <div class="word invisible">学生会</div>
+    <div class="word invisible">学生党建活动</div>
+    <div class="word invisible">工会活动</div>
+    <div class="word invisible" id="xiqianjingshen">“西迁精神”是在1956年交通大学由上海迁往西安的过程中，生发出来的一种宝贵的精神财富。 [1] 
+        1955年4月，国务院作出交通大学内迁西安的重大决定。自1956年首批师生开赴西安，到1959年迁至西安的交通大学主体部分定名为西安交通大学，交大西迁历时四年，迁校总人数达一万五千余人。 [2] 
+        2005年12月6日，经西安交大党委会议审议批准，交大西迁精神概括为“胸怀大局，无私奉献，弘扬传统，艰苦创业”16个字 [3]  。2017年4月5日，西安交大党委常委会确定每年9月10日教师节为“交通大学西迁纪念日” </div>
+    <div class="word invisible">电信学部简介</div>
+    <div class="word invisible">电信学部内院系分布</div>
+    <div class="word invisible">学科介绍</div>
+    <div class="scenery invisible"><img src="../img/jianjie1.png" alt=""></div>
+    <div class="scenery invisible"><img src="../img/xiaohui.png" alt=""></div>
+    <div class="scenery invisible"><img src="../img/lingdao.png" alt=""></div>
+    <div class="scenery invisible"><img src="../img/renshu.png" alt=""></div>
+    <div class="scenery invisible"><img src="../img/cxg.jpg" alt=""></div>
+    <div class="scenery invisible"><img src="../img/cxg2.webp" alt=""></div>
+    <div class="scenery invisible"><img src="../img/sushehuanjing.jpeg" alt=""></div>
+    <div class="scenery invisible"><img src="../img/qianxuesen.jpeg" alt=""></div>
+    <div class="scenery invisible"><img src="../img/jdxsh.png" alt=""></div>
+    <div class="scenery invisible"><img src="../img/xsdj.png" alt=""></div>
+    <div class="scenery invisible"><img src="../img/ghhd.png" alt=""></div>
+    <div class="scenery invisible"><img src="../img/xqjs.png" alt=""></div>
+    <div class="scenery invisible"><img src="../img/xbjj.png" alt=""></div>
+    <div class="scenery invisible"><img src="../img/xybj.png" alt=""></div>
+    <div class="scenery invisible"><img src="../img/xkjs.png" alt=""></div>
+    </div>  
+    
+    <div class="foot">
+
+        <a href="http://www.xjtu.edu.cn/">西安交通大学</a>
+        <a href="http://www.xayl.org/">西安共青团</a>
+        <a href="https://www.sxgqt.org.cn/">陕西共青团</a>
+        <a href="http://www.gqt.org.cn/">共青团中央</a>
+    </div>
+
+</body>
+
+</html>

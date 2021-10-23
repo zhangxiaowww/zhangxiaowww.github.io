@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #btn1 {
+            width: 100px;
+            height: 50px;
+        }
+        #btn2 {
+            width: 100px;
+            height: 50px;
+        }
+
+        #box1 {
+            width: 150px;
+            height: 150px;
+            background-color: #bfa;
+            position: absolute;
+            left: 0;
+        }
+        #box2 {
+            width: 150px;
+            height: 150px;
+            background-color: greenyellow;
+            position: absolute;
+            left: 0;
+            top:200px;
+        }
+    </style>
+    <script src="need/tools.js"></script>
+    <script>
+        window.onload = function () {
+            var btn1 = document.getElementById("btn1");
+            var box1 = document.getElementById("box1");
+            var btn2 = document.getElementById("btn2");
+            var box2 = document.getElementById("box2");
+           
+            btn1.onclick = function () {
+               move(box1,"left",500,10);
+            };
+            btn2.onclick = function(){
+                move(box2,"width",500,15,function(){
+                    alert("ww");
+                });
+            }
+        };
+          
+        
+    </script>
+</head>
+
+<body>
+    <button id="btn1">点击box1向右移动</button>
+    <button id="btn2">点击box2向右移动</button>
+    <div id="box1"></div>
+    <div id="box2"></div>
+</body>
+
+</html>

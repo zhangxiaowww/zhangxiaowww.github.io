@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../need/iconfont/iconfont.css">
+    <link rel="stylesheet" href="../need/font_2876443_xpsnawm4179/iconfont.css">
+    <link rel="stylesheet" href="../need/reset.css">
+    <link rel="stylesheet" href="../layout/lay.css">
+    <style>
+        body {
+            background-color: rgb(222, 222, 222);
+        }
+
+        .box {
+            position: relative;
+
+            margin: 120px 0 0 0;
+            width: 1920px;
+            height: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+
+        ul.img-list {
+            height: 100%;
+            position: relative;
+        }
+
+        ul.img-list li {
+            float: left;
+        }
+
+        div.pointer {
+            position: absolute;
+            z-index: 9999;
+            bottom: 0;
+            position: absolute;
+            left: 0;
+        }
+
+        div.pointer a {
+            float: left;
+            width: 20px;
+            height: 20px;
+            background-color: rgba(255, 255, 255, .5);
+            margin-left: 8px;
+            border-radius: 50%;
+
+        }
+
+        div.pointer a:hover {
+            background-color: beige;
+        }
+
+        #lef {
+            color: rgba(255, 255, 255, .5);
+            position: absolute;
+            font-size: 100px;
+            left: 0;
+            top: 0;
+        }
+
+        #rig {
+            color: rgba(255, 255, 255, .5);
+            position: absolute;
+            font-size: 100px;
+            right: 0;
+            top: 0;
+        }
+    </style>
+    <script src="../need/tools.js"></script>
+    <script>
+
+        window.onload = function () {
+            var leflogo = document.getElementById("lef");
+            var riglogo = document.getElementById("rig");
+            var outer = document.getElementById("box");
+            var inner = document.getElementById("pointer");
+            var imglist = document.getElementById("imglist");
+            var num = document.getElementsByTagName("img");
+            imglist.style.width = 1940 * num.length + "px";
+            var alla = document.getElementsByClassName("aa");
+            leflogo.style.top = (898 - 100) / 2 + "px";
+            riglogo.style.top = (898 - 100) / 2 + "px";
+            var index = 0;
+            leflogo.onclick = function () {
+                clearInterval(timer);
+                var curr = parseInt(getStyle(imglist, "left"));
+                if (!(curr >= 0)) {
+
+                    move(imglist, "left", curr + 1920, 15, function () {
+                        autochange();
+                        index = -curr / 1920 - 1;
+                        setA();
+                    })
+
+                } if (curr == 0) {
+                    autochange();
+                }
+
+            }
+
+            riglogo.onclick = function () {
+                clearInterval(timer);
+                var curr = parseInt(getStyle(imglist, "left"));
+                if (!(curr <= -1920 * (num.length - 2))) {
+
+                    move(imglist, "left", curr - 1920, 15, function () {
+                        autochange();
+                        index = -curr / 1920 + 1;
+                        setA();
+                    })
+
+                } if (curr == -1920 * num * (length - 2)) {
+                    autochange();
+                }
+            }
+
+            inner.style.left = (parseInt(getStyle(outer, "width")) - parseInt(getStyle(inner, "width"))) / 2 + "px";
+            alla[0].style.backgroundColor = "beige";
+            autochange();
+            for (var i = 0; i < alla.length; i++) {
+
+                alla[i].number = i;
+                alla[i].onclick = function () {
+                    clearInterval(timer);
+                    index = this.number;
+                    setA();
+                    move(imglist, "left", -1920 * index, 15, function () {
+                        autochange();
+                    });
+
+                    if (index > num.length - 1) {
+                        index = 0;
+                    }
+
+                }
+            }
+
+            function setA() {
+                //判断是否为最后一张图
+                if (index >= num.length - 1) {
+                    index = 0;
+                    imglist.style.left = 0;
+                }
+                for (var i = 0; i < alla.length; i++) {
+                    alla[i].style.backgroundColor = "";
+                }
+                alla[index].style.backgroundColor = "beige";
+            }
+
+            var timer;
+            function autochange() {
+                timer = setInterval(function () {
+
+                    index++;
+                    index = index % num.length;
+                    move(imglist, "left", -1920 * index, 15, function () {
+                        setA();//setA要放在里面
+                    });
+
+                }, 2000)
+
+            }
+            function getStyle(obj, name) {
+                if (window.getComputedStyle) {
+                    return getComputedStyle(obj, null)[name];
+                } else {
+                    return obj.currentStyle[name];
+                }
+            }
+        };
+
+
+
+    </script>
+
+</head>
+
+<body>
+    <div class="nav clearfix">
+
+        <div class="logo"><a href="#"><i class="iconfont icon-cangchuguanli"></i></a></div>
+        <div class="nav-top">
+            <ul class="list">
+                <li><a href="#">首页</a></li>
+                <li><a href="grjs.html">个人介绍</a></li>
+                <li><a href="kysh.html">课余生活</a></li>
+                <li><a href="xxjs.html">学校介绍</a></li>
+                <li><a href="dygh.html">读研规划</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="box" id="box">
+
+
+        <ul class="img-list" id="imglist">
+            <li><img src="../img/banner1.jpg" alt=""></li>
+            <li><img src="../img/banner5.jpeg" alt=""></li>
+            <li><img src="../img/banner3.jpeg" alt=""></li>
+            <li><img src="../img/banner4.jpeg" alt=""></li>
+            <li><img src="../img/banner1.jpg" alt=""></li>
+
+        </ul>
+        <div><a href="javascript:void(0);"><i class="iconfont icon-left" id="lef"></i></a></div>
+        <div><a href="javascript:void(0);"><i class="iconfont icon-right" id="rig"></a></i></div>
+        <div class="pointer" id="pointer">
+            <a href="javascript:void(0);" class="aa"></a>
+            <a href="javascript:void(0);" class="aa"></a>
+            <a href="javascript:void(0);" class="aa"></a>
+            <a href="javascript:void(0);" class="aa"></a>
+
+        </div>
+    </div>
+    <div class="foot">
+
+        <a href="http://www.xjtu.edu.cn/">西安交通大学</a>
+        <a href="http://www.xayl.org/">西安共青团</a>
+        <a href="https://www.sxgqt.org.cn/">陕西共青团</a>
+        <a href="http://www.gqt.org.cn/">共青团中央</a>
+    </div>
+
+</body>
+
+</html>
